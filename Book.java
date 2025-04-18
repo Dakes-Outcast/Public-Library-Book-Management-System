@@ -9,11 +9,11 @@ public class Book extends LibraryItem
         this.genre = genre;
         this.pageCount = pageCount;
     }
-    public String getAuther() {
+    public String getAuthor() {
         return author;
     }
-    public void setAuther(String auther) {
-        this.author = auther;
+    public void setAuther(String authr) {
+        this.author = author;
     }
     public String getGenre() {
         return genre;
