@@ -1,19 +1,19 @@
 public class Book extends LibraryItem
 {
-    private String auther;
+    private String author;
     private String genre;
     private int pageCount;
     public Book(String auther, String genre, int pageCount){
-        super(itemID, title, publisher, yearPublished, price);
-        this.auther = auther;
+        super(itemID, title, publisher, publicationYear, price);
+        this.author = author;
         this.genre = genre;
         this.pageCount = pageCount;
     }
     public String getAuther() {
-        return auther;
+        return author;
     }
     public void setAuther(String auther) {
-        this.auther = auther;
+        this.author = auther;
     }
     public String getGenre() {
         return genre;
