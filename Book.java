@@ -16,7 +16,7 @@ public class Book extends LibraryItem
     }
     public void setAuthor(String author) {
         this.author = author;
-    }
+    } 
     public String getGenre() {
         return genre;
     }
