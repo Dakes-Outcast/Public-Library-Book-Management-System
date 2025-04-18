@@ -3,8 +3,10 @@ public class Book extends LibraryItem
     private String author;
     private String genre;
     private int pageCount;
-    public Book(String author, String genre, int pageCount){
-        super(itemID, title, publisher, publicationYear, price);
+    public Book(String itemID, String title, String publisher, int publicationYear, 
+                String author, String genre, int pageCount)
+    {
+        super(itemID, title, publisher, publicationYear);
         this.author = author;
         this.genre = genre;
         this.pageCount = pageCount;
@@ -12,7 +14,7 @@ public class Book extends LibraryItem
     public String getAuthor() {
         return author;
     }
-    public void setAuther(String authr) {
+    public void setAuthor(String author) {
         this.author = author;
     }
     public String getGenre() {
