@@ -2,14 +2,14 @@ public class Book extends LibraryItem
 {
     private String author;
     private String genre;
-    private int pageCount;
+    
     public Book(String itemID, String title, String publisher, int publicationYear, 
-                String author, String genre, int pageCount)
+                String author, String genre)
     {
         super(itemID, title, publisher, publicationYear);
         this.author = author;
         this.genre = genre;
-        this.pageCount = pageCount;
+        
     }
     public String getAuthor() {
         return author;
@@ -23,11 +23,10 @@ public class Book extends LibraryItem
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    public int getPageCount() {
-        return pageCount;
+    @Override
+    public String getItemDetails()
+    {
+        return String.format("Book ID: %s\nTitle: %s\nPublisher: %s\nPublication Year: %d\nAuthor: %s\nGenre: %s\n",
+                getItemID(), getTitle(), getpublisher(), getpublicationYear(), author, genre);
     }
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
-    }
-    
 }
