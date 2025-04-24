@@ -42,4 +42,6 @@ public String gettitle(){
             public void setpublisher(String publisher){
             this.publisher = publisher;
             }
+
+            public abstract String getItemDetails();
 }
