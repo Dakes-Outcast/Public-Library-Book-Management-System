@@ -31,5 +31,27 @@ public class Utility
         return results;
     } 
 
-    public java.util.ArrayList<LibraryItem
+    public java.util.ArrayList<LibraryItem> sorter(String title)
+    {
+        java.util.ArrayList<Library> results = new java.util.ArrayList<>();
+        int n = results.size();
+        for(int i = 0; i < n-1; i++)
+        {
+            int minIndex = i;
+            for (int j=i+1; j< n; j++)
+            {
+                if(results.get(j).getTitle().compareToIgnoreCase(results.get(minIndex).getTitle())<0)
+                {
+                    minIndex = j;
+                }            
+            }
+            if (minIndex !=i)
+            {
+                LibraryItem temp= results.get(i);
+                results.set(i,results.get(minIndex));
+                results.set(minIndex, temp);
+            }
+        }
+        return results;
+    }
 }
