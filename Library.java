@@ -53,8 +53,8 @@ public class Library
         java.util.ArrayList<LibraryItem> titleresults = utility.titleSearch(searchTerm);
         if (titleresults.isEmpty()) 
         {
-            System.out.println("No books found with the title: " + searchTerm);
-            return;
+           throw new ItemNotFoundException("No books found with the title: " + searchTerm);
+    
         }  
         {
             System.out.println("Books found with the title: " + searchTerm);
