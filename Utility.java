@@ -31,16 +31,17 @@ public class Utility
         return results;
     } 
 
-    public java.util.ArrayList<LibraryItem> sorter(String title)
+    public java.util.ArrayList<LibraryItem> sorter()
+    
     {
-        java.util.ArrayList<Library> results = new java.util.ArrayList<>();
+        java.util.ArrayList<Library> results = new java.util.ArrayList<>(items);
         int n = results.size();
         for(int i = 0; i < n-1; i++)
         {
             int minIndex = i;
             for (int j=i+1; j< n; j++)
             {
-                if(results.get(j).getTitle().compareToIgnoreCase(results.get(minIndex).getTitle())<0)
+                if(results.get(j).getItemID()<results.get(minIndex).getItemID())
                 {
                     minIndex = j;
                 }            
