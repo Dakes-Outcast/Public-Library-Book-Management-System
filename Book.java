@@ -3,7 +3,7 @@ public class Book extends LibraryItem
     private String author;
     private String genre;
     
-    public Book(String itemID, String title, String publisher, int publicationYear, 
+    public Book(int itemID, String title, String publisher, int publicationYear, 
                 String author, String genre)
     {
         super(itemID, title, publisher, publicationYear);
