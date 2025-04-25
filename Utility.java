@@ -34,7 +34,7 @@ public class Utility
     public java.util.ArrayList<LibraryItem> sorter()
     
     {
-        java.util.ArrayList<Library> results = new java.util.ArrayList<>(items);
+        java.util.ArrayList<LibraryItem> results = new java.util.ArrayList<>(items);
         int n = results.size();
         for(int i = 0; i < n-1; i++)
         {
