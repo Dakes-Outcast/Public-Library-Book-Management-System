@@ -55,4 +55,17 @@ public class Utility
         }
         return results;
     }
+
+    public java.util.ArrayList<Book> getAllBooks()
+    {
+        java.util.ArrayList<Book> books = new java.util.ArrayList<>();
+        for (LibraryItem item : items)
+        {
+            if (item instanceof Book)
+            {
+                books.add((Book) item);
+            }
+        }
+        return books;
+    }
 }
