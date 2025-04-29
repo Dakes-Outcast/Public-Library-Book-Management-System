@@ -38,7 +38,7 @@
         public String toString() {
             return "Loan Details:\n" +
                    "Book: " + book.getTitle() + " by " + book.getAuthor() + "\n" +
-                   "Due Date: " + dueDate + "\n" 
+                   "Due Date: " + dueDate + "\n";
                   
         }
     }
