@@ -65,5 +65,10 @@ public class Library
         }
 
     }
-    
+    public void findBookbyID(int bookID)
+    {
+        Book book = (Book) item;
+        System.out.println("Book found with ID: ");
+        System.out.println(book.getItemDetails());
+    }
 }
