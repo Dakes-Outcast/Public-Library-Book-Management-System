@@ -141,5 +141,9 @@ public class Library
             System.out.println("Book found :")
             System.out.println(e.getMessage)
         }
+        catch (ItemNotFoundException e)
+        {
+            System.out.println(e.getMessage);
+        }
     }
 }
