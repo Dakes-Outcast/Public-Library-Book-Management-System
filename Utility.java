@@ -56,7 +56,7 @@ public class Utility
         return results;
     }
 
-    public LibraryItem searchbyID(int itemID)
+    public LibraryItem findBookbyID(int itemID)
     {
         ArrayList<LibraryItem> sortedItems = sorter();
 
@@ -115,4 +115,6 @@ public class Utility
         }
         return books;
     }
+
+    
 }
