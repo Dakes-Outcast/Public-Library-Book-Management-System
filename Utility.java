@@ -56,6 +56,31 @@ public class Utility
         return results;
     }
 
+    public LibraryItem searchbyID(int itemID)
+    {
+        ArrayList<LibraryItem> sortedItems = sorter();
+
+        int left = 0 ;
+        int right = sortedItems.size() - 1;
+        while(left<=right)
+        {
+            int mid = left/(right-left)/2;
+
+            if(sortedItems.get(mid).getItemID() == itemID)
+            {
+                return sortedItems.get(mid);
+            }
+            else if (sortedItems.get(mid).getItemID() < itemID)
+            {
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid - 1;
+            }
+        }
+    }
+
     public java.util.ArrayList<Book> getAllBooks()
     {
         java.util.ArrayList<Book> books = new java.util.ArrayList<>();
