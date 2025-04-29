@@ -56,7 +56,7 @@ public class Utility
         return results;
     }
 
-    public LibraryItem findBookbyID(int itemID)
+    public LibraryItem findBookbyID(int itemID) throws ItemNotFoundException
     {
         ArrayList<LibraryItem> sortedItems = sorter();
 
@@ -79,6 +79,8 @@ public class Utility
                 right = mid - 1;
             }
         }
+
+        throw new ItemNotFoundException("Book with iD " + bookID + " not found")
     }
 
     public void addLoan(loan loan)
@@ -86,12 +88,15 @@ public class Utility
         loans.add(loan);
         Book book = loan.getBook();
      }
-    public void returnbook(int bookID)
+    public void returnbook(int bookID) throws ItemNotFoundException
     {
-        LibraryItem item = searchbyID(bookID);
+        LibraryItem item = findBookbyID(bookID);
         if (item instanceof Book)
         {
+            throw new ItemNotFoundExeption("Item with ID:" + bookID + "is not a book")
+        }
             Book book = (Book) item;
+
             for(Loan loan : loans)
             {
                 if(loan.getBook().getItemID() == bookID)
@@ -99,9 +104,9 @@ public class Utility
                     System.out.println("Book returned successfully.");
                 }
             
-            }  
+            }
 
-        }
+        
     }   
     public java.util.ArrayList<Book> getAllBooks()
     {
