@@ -81,6 +81,28 @@ public class Utility
         }
     }
 
+    public void addLoan(loan loan)
+    {
+        loans.add(loan);
+        Book book = loan.getBook();
+     }
+    public void returnbook(int bookID)
+    {
+        LibraryItem item = searchbyID(bookID);
+        if (item instanceof Book)
+        {
+            Book book = (Book) item;
+            for(Loan loan : loans)
+            {
+                if(loan.getBook().getItemID() == bookID)
+                {
+                    System.out.println("Book returned successfully.");
+                }
+            
+            }  
+
+        }
+    }   
     public java.util.ArrayList<Book> getAllBooks()
     {
         java.util.ArrayList<Book> books = new java.util.ArrayList<>();
