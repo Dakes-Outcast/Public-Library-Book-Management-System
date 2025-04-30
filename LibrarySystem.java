@@ -206,7 +206,7 @@ public class LibrarySystem{
         System.out.println("\n--- ADD NEW BOOK ---");
         
         System.out.print("Enter book ID: ");
-        int itemID = Intnum()
+        int itemID = Intnum();
         
         scanner.nextLine(); // Clear input buffer
         
