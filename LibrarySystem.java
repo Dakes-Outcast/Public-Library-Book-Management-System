@@ -13,6 +13,22 @@ public class LibrarySystem{
      * 
      * @param args Command line arguments (not used)
      */
+
+     private static int Intnum()
+     {
+        int num = 0;
+        boolean valid = false;
+        while (!valid) {
+            try {
+                num = scanner.nextInt();
+                valid = true;
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear the invalid input
+            }
+        }
+        return num;
+     }
     public static void main(String[] args) {
         // Initialize the library with name and location
         library = new Library("City Central Library", "123 Main Street");
@@ -57,7 +73,7 @@ public class LibrarySystem{
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             
-            int choice = scanner.nextInt();
+            int choice = Intnum(); // Get user choice
             
             switch (choice) {
                 case 1:
@@ -97,7 +113,7 @@ public class LibrarySystem{
             System.out.println("0. Return to main menu");
             System.out.print("Enter your choice: ");
             
-            int choice = scanner.nextInt();
+            int choice = Intnum(); // Get user choice
             
             switch (choice) {
                 case 1:
@@ -148,7 +164,7 @@ public class LibrarySystem{
             System.out.println("0. Return to main menu");
             System.out.print("Enter your choice: ");
             
-            int choice = scanner.nextInt();
+            int choice = Intnum(); // Get user choice
             
             switch (choice) {
                 case 1:
@@ -184,7 +200,7 @@ public class LibrarySystem{
         System.out.println("\n--- ADD NEW BOOK ---");
         
         System.out.print("Enter book ID: ");
-        int itemID = scanner.nextInt();
+        int itemID = Intnum()
         
         scanner.nextLine(); // Clear input buffer
         
@@ -195,7 +211,8 @@ public class LibrarySystem{
         String publisher = scanner.nextLine();
         
         System.out.print("Enter publication year: ");
-        int pubYear = scanner.nextInt();
+        int pubYear = Intnum(); // Get publication year
+        // Validate publication year
         
         scanner.nextLine(); // Clear input buffer
         
@@ -219,7 +236,7 @@ public class LibrarySystem{
     private static void deleteBook() {
         System.out.println("\n--- DELETE BOOK ---");
         System.out.print("Enter the ID of the book to delete: ");
-        int bookID = scanner.nextInt();
+        int bookID = Intnum(); // Get book ID
         
         try {
             LibraryItem item = findBook(bookID);
@@ -237,7 +254,7 @@ public class LibrarySystem{
     private static void editBook() {
         System.out.println("\n--- EDIT BOOK ---");
         System.out.print("Enter the ID of the book to edit: ");
-        int bookID = scanner.nextInt();
+        int bookID = Intnum(); // Get book ID
         
         try {
             LibraryItem item = findBook(bookID);
@@ -317,7 +334,7 @@ public class LibrarySystem{
     private static void findBookById() {
         System.out.println("\n--- FIND BOOK BY ID ---");
         System.out.print("Enter book ID: ");
-        int bookID = scanner.nextInt();
+        int bookID = Intnum(); // Get book ID
         
         library.findBookByID(bookID);
     }
@@ -329,7 +346,7 @@ public class LibrarySystem{
     private static void borrowBook() {
         System.out.println("\n--- BORROW A BOOK ---");
         System.out.print("Enter book ID: ");
-        int bookID = scanner.nextInt();
+        int bookID = Intnum(); // Get book ID
         
         scanner.nextLine(); // Clear buffer
         
@@ -371,4 +388,5 @@ public class LibrarySystem{
             throw new ItemNotFoundException("Book with ID " + bookID + " not found");
         }
     }
+    
 }
