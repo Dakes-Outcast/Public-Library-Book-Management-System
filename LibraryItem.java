@@ -1,47 +1,105 @@
+/**
+ * Abstract base class for all library items.
+ * Provides common attributes and behaviors for different types of library items.
+ */
 public abstract class LibraryItem{
-    private int itemID;
-    private String title;
-    private int publicationYear;
-    private String publisher;
+    private int itemID;           // Unique identifier for the item
+    private String title;         // Title of the item
+    private int publicationYear;  // Year when the item was published
+    private String publisher;     // Publisher of the item
 
-    public LibraryItem(int itemID , String title , int publicationYear , String publisher){
-    this.itemID = itemID;
-    this.title = title;
-    this.publicationYear = publicationYear;
-    this.publisher = publisher;
+    /**
+     * Constructor to create a new LibraryItem.
+     * 
+     * @param itemID The unique identifier for the item
+     * @param title The title of the item
+     * @param publisher The publisher of the item
+     * @param publicationYear The year when the item was published
+     */
+    public LibraryItem(int itemID , String title , String publisher, int publicationYear){
+        this.itemID = itemID;
+        this.title = title;
+        this.publisher = publisher;
+        this.publicationYear = publicationYear;
     }
 
-    public int getitemID(){
+    /**
+     * Gets the item's unique identifier.
+     * 
+     * @return The item ID
+     */
+    public int getItemID(){
         return itemID;
     }
 
-    public void setitemID(int itemID){
+    /**
+     * Sets the item's unique identifier.
+     * 
+     * @param itemID The ID to set
+     */
+    public void setItemID(int itemID){
         this.itemID = itemID;
-        }
+    }
 
-        public String gettitle(){
-            return title;
-        }
+    /**
+     * Gets the title of the item.
+     * 
+     * @return The item title
+     */
+    public String getTitle(){
+        return title;
+    }
     
-            public void settitle(String title){
-            this.title = title;
-        }
+    /**
+     * Sets the title of the item.
+     * 
+     * @param title The title to set
+     */
+    public void setTitle(String title){
+        this.title = title;
+    }
 
-                public int getpublicationYear(){
-                return publicationYear;
-        }
-        
-        public void setpublicationYear(int publicationYear){
+    /**
+     * Gets the publication year of the item.
+     * 
+     * @return The publication year
+     */
+    public int getPublicationYear(){
+        return publicationYear;
+    }
+    
+    /**
+     * Sets the publication year of the item.
+     * 
+     * @param publicationYear The publication year to set
+     */
+    public void setPublicationYear(int publicationYear){
         this.publicationYear = publicationYear;
-        }
+    }
 
-        public String getpublisher(){
-            return publisher;
-            }
-            
-            public void setpublisher(String publisher){
-            this.publisher = publisher;
-            }
+    /**
+     * Gets the publisher of the item.
+     * 
+     * @return The publisher
+     */
+    public String getPublisher(){
+        return publisher;
+    }
+    
+    /**
+     * Sets the publisher of the item.
+     * 
+     * @param publisher The publisher to set
+     */
+    public void setPublisher(String publisher){
+        this.publisher = publisher;
+    }
 
-            public abstract String getItemDetails();
+    /**
+     * Abstract method that must be implemented by subclasses.
+     * Provides formatted details about the specific library item.
+     * 
+     * @return A formatted string with item details
+     */
+    public abstract String getItemDetails();
 }
