@@ -53,6 +53,9 @@ public class LibrarySystem{
         Book book1 = new Book(231, "Nancy Drew", "K. Paul", 2006, "Carolyn keene", "Crime");
         Book book2 = new Book(232, "A study in Scarlett", "Ward, Lock & Co.", 1887, "Arthur Conan Doyle", "Mystery");
         Book book3 = new Book(233, "Polar Opposites", "Johnson Production Group", 2023, "Aubrey Graham", "soul");
+        Book book4 = new Book(234, "A court of thorns and roses" , "Monica Patter", 2024 , "Sam Patterson", "Romance");
+        Book book5 = new Book(235, "Hello Kitty" , "Bronze", 2004 , "Ella Carpenter" , "Love");
+        Book book6 = new Book(236, "The Conjuring" , "Jeff Bezos" , 2013 , "Elon Musk", "Horror");
         
         // Add books to the library
         library.addItem(book1);
