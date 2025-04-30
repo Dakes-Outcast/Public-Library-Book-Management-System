@@ -34,9 +34,9 @@ public class LibrarySystem{
      */
     private static void StartingLibrary() {
         // Create sample books
-        Book book1 = new Book(231, "Lets", "Didd", 2025, "Didler", "Fiction");
-        Book book2 = new Book(232, "Letso", "Diddy", 2022, "Diddler", "Fiction");
-        Book book3 = new Book(233, "Letso", "Diddy", 2020, "Diddler", "Fiction");
+        Book book1 = new Book(231, "Nancy Drew", "K. Paul", 2006, "Carolyn keene", "Crime");
+        Book book2 = new Book(232, "A study in Scarlett", "Ward, Lock & Co.", 1887, "Arthur Conan Doyle", "Mystery");
+        Book book3 = new Book(233, "Polar Opposites", "Johnson Production Group", 2023, "Aubrey Graham", "soul");
         
         // Add books to the library
         library.addItem(book1);
