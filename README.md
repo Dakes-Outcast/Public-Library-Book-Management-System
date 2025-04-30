@@ -81,7 +81,6 @@ The system provides a text-based console interface with the following menus:
 ### User Menu
 - View all books
 - Search books by title
-- Find book by ID
 - Borrow a book
 - Return a book
 - Return to main menu

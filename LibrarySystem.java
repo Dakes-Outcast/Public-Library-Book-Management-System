@@ -204,9 +204,8 @@ private static boolean authentication() {
             System.out.println("\n===== USER MENU =====");
             System.out.println("1. View all books");
             System.out.println("2. Search books by title");
-            System.out.println("3. Find book by ID");
-            System.out.println("4. Borrow a book");
-            System.out.println("5. Return a book");
+            System.out.println("3. Borrow a book");
+            System.out.println("4. Return a book");
             System.out.println("0. Return to main menu");
             System.out.print("Enter your choice: ");
             
@@ -220,12 +219,9 @@ private static boolean authentication() {
                     searchBooksByTitle(); // Search books by title
                     break;
                 case 3:
-                    findBookById(); // Find a book by ID
-                    break;
-                case 4:
                     borrowBook(); // Borrow a book
                     break;
-                case 5:
+                case 4:
                     returnBook(); // Return a borrowed book
                     break;
                 case 0:
