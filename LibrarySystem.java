@@ -40,6 +40,9 @@ public class LibrarySystem{
         Book book4 = new Book(234, "A court of thorns and roses" , "Monica Patter", 2024 , "Sam Patterson", "Romance");
         Book book5 = new Book(235, "Hello Kitty" , "Bronze", 2004 , "Ella Carpenter" , "Love");
         Book book6 = new Book(236, "The Conjuring" , "Jeff Bezos" , 2013 , "Elon Musk", "Horror");
+        Book book7 = new Book(562, "Secret Service", "Harvey Burns", 1990, "Linkletter Smith", "Crime");
+        Book book8 = new Book(432, "Jane Eye", "Willow Pince", 2001, "Bruce Manhaken", "Horror");
+        Book book9 = new book(165, "Illusion", "Pat McCaffe", 2013, "Brooke Williams", "Fiction");
         
         // Add books to the library
         library.addItem(book1);
