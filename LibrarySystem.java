@@ -59,11 +59,23 @@ public class LibrarySystem{
         Book book7 = new Book(562, "Secret Service", "Harvey Burns", 1990, "Linkletter Smith", "Crime");
         Book book8 = new Book(432, "Jane Eye", "Willow Pince", 2001, "Bruce Manhaken", "Horror");
         Book book9 = new Book(165, "Illusion", "Pat McCaffe", 2013, "Brooke Williams", "Fiction");
-        
+        Book book10 = new Book(700,"The Adventures of Tom Sawyer", "American Publishing Company", 1876, "Mark Twain", "Adventure");
+        Book book11 = new Book(351,"The Great Gatsby", "Scribner", 1925, "F. Scott Fitzgerald", "Classic");
+        Book book12 = new Book(234,"Things Fall Apart","Heinemann",1958,"Chinua Achebe", "Historical fiction");
         // Add books to the library
         library.addItem(book1);
         library.addItem(book2);
         library.addItem(book3);
+        library.addItem(book4);
+        library.addItem(book5);
+        library.addItem(book6);
+        library.addItem(book7);
+        library.addItem(book8); 
+        library.addItem(book9);
+        library.addItem(book10);
+        library.addItem(book11);
+        library.addItem(book12);
+        
     }
     
     /**
@@ -73,11 +85,11 @@ public class LibrarySystem{
         boolean exit = false;
         
         while (!exit) {
-            System.out.println("\n\t===== MAIN MENU =====\t");
-            System.out.println("\t1. Manager Mode\t");
-            System.out.println("\t2. User Mode\t");
-            System.out.println("\t0. Exit\t");
-            System.out.print("\tEnter your choice:  \t");
+            System.out.println("\n\t\t\t===== MAIN MENU =====\t\t\t");
+            System.out.println("\t\t\t1. Manager Mode\t\t\t");
+            System.out.println("\t\t\t2. User Mode\t\t\t");
+            System.out.println("\t\t\t0. Exit\t\t\t");
+            System.out.print("\t\t\tEnter your choice:  ");
             
             int choice = Intnum(); // Get user choice
             
@@ -117,7 +129,7 @@ public class LibrarySystem{
             System.out.println("5. Search books by title");
             System.out.println("6. Find book by ID");
             System.out.println("0. Return to main menu");
-            System.out.print("Enter your choice: \n");
+            System.out.print("Enter your choice: ");
             
             int choice = Intnum(); // Get user choice
             
@@ -168,7 +180,7 @@ public class LibrarySystem{
             System.out.println("4. Borrow a book");
             System.out.println("5. Return a book");
             System.out.println("0. Return to main menu");
-            System.out.print("Enter your choice: \n");
+            System.out.print("Enter your choice: ");
             
             int choice = Intnum(); // Get user choice
             
