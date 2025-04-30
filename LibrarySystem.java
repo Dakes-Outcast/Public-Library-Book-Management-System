@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class LibrarySystem{
     private static Scanner scanner = new Scanner(System.in); // Scanner for user input
     private static Library library; // The main library object
-    
+    private static final String managerPassword = "RedMoon20"; // Password for manager mode
+    private static final int max_login_attempts = "3"; // Maximum login attempts for manager mode    
     /**
      * Main method - entry point of the application.
      * 
@@ -95,7 +96,10 @@ public class LibrarySystem{
             
             switch (choice) {
                 case 1:
-                    managerMenu(); // Enter manager mode
+                    if (authentication()){managerMenu(); // Enter manager mode if authenticated
+                    } else {
+                        System.out.println("Invalid password. Access denied.");
+                    }
                     break;
                 case 2:
                     userMenu(); // Enter user mode
@@ -110,6 +114,30 @@ public class LibrarySystem{
         }
     }
     
+    // The new authentication method
+private static boolean authentication() {
+    System.out.println("\n===== MANAGER AUTHENTICATION =====");
+    int attempts = 0;
+    
+    while (attempts < max_login_attempts) {
+        System.out.print("Enter manager password (attempt " + (attempts + 1) + 
+                         " of " + max_login_attempts + "): ");
+        scanner.nextLine(); // Clear input buffer
+        String password = scanner.nextLine();
+        
+        if (password.equals(managerPassword)) {
+            System.out.println("Authentication successful!");
+            return true;
+        } else {
+            System.out.println("Incorrect password.");
+            attempts++;
+        }
+    }
+    
+    System.out.println("Maximum login attempts exceeded. Access denied.");
+    return false;
+}
+
     /**
      * Displays and handles the manager menu options.
      * Provides administrative functions for library management.
