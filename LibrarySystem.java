@@ -121,7 +121,7 @@ private static boolean authentication() {
     
     while (attempts < Max_login_attempts) {
         System.out.print("Enter manager password (attempt " + (attempts + 1) + 
-                         " of " + max_login_attempts + "): ");
+                         " of " + Max_login_attempts + "): ");
         scanner.nextLine(); // Clear input buffer
         String password = scanner.nextLine();
         
