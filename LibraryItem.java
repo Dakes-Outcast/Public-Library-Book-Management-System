@@ -16,7 +16,7 @@ public abstract class LibraryItem{
      * @param publisher The publisher of the item
      * @param publicationYear The year when the item was published
      */
-    public LibraryItem(int itemID , String title , String publisher, int publicationYear){
+    protected LibraryItem(int itemID , String title , String publisher, int publicationYear){
         this.itemID = itemID;
         this.title = title;
         this.publisher = publisher;
