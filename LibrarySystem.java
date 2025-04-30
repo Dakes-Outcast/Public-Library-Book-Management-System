@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class LibrarySystem{
     private static Scanner scanner = new Scanner(System.in); // Scanner for user input
     private static Library library; // The main library object
-    private static final String managerPassword = "RedMoon20"; // Password for manager mode
-    private static final int max_login_attempts = "3"; // Maximum login attempts for manager mode    
+    private static final String ManagerPassword = "RedMoon20"; // Password for manager mode
+    private static final int Max_login_attempts = 3; // Maximum login attempts for manager mode    
     /**
      * Main method - entry point of the application.
      * 
@@ -119,13 +119,13 @@ private static boolean authentication() {
     System.out.println("\n===== MANAGER AUTHENTICATION =====");
     int attempts = 0;
     
-    while (attempts < max_login_attempts) {
+    while (attempts < Max_login_attempts) {
         System.out.print("Enter manager password (attempt " + (attempts + 1) + 
                          " of " + max_login_attempts + "): ");
         scanner.nextLine(); // Clear input buffer
         String password = scanner.nextLine();
         
-        if (password.equals(managerPassword)) {
+        if (password.equals(ManagerPassword)) {
             System.out.println("Authentication successful!");
             return true;
         } else {
