@@ -80,11 +80,11 @@ public class Library
         java.util.ArrayList<Book> books = Utility.getAllBooks();
         if (books.isEmpty()) 
         {
-            System.out.println("No books available in the library.");
+            System.out.println("\nNo books available in the library.\n");
             return;
         } 
         
-        System.out.println("Books available in the library:");
+        System.out.println("\nBooks available in the library:\n");
         for (Book book : books) 
         {
             System.out.println(book.getItemDetails());
@@ -104,10 +104,10 @@ public class Library
              java.util.ArrayList<LibraryItem> titleresults = Utility.titleSearch(searchTerm);
              if (titleresults.isEmpty()) 
              {
-                throw new ItemNotFoundException("No books found with the title: " + searchTerm);
+                throw new ItemNotFoundException("\nNo books found with the title: " + searchTerm);
              }  
              {
-                System.out.println("Books found with the title: " + searchTerm);
+                System.out.println("\nBooks found with the title: " + searchTerm);
                 for (LibraryItem item : titleresults) 
                 {
                     System.out.println(item.getItemDetails());
