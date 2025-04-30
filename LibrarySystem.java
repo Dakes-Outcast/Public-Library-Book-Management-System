@@ -1,34 +1,52 @@
 import java.util.Scanner;
-public class LibrarySystem{
-    private static Scanner scanner = new Scanner(System.in);
-    private static Library library;
-    
-    public static void main(String[] args) {
 
+/**
+ * Main class for the Library Management System.
+ * Provides user interface and menu options for library operations.
+ */
+public class LibrarySystem{
+    private static Scanner scanner = new Scanner(System.in); // Scanner for user input
+    private static Library library; // The main library object
+    
+    /**
+     * Main method - entry point of the application.
+     * 
+     * @param args Command line arguments (not used)
+     */
+    public static void main(String[] args) {
+        // Initialize the library with name and location
         library = new Library("City Central Library", "123 Main Street");
         
+        // Add sample books to the library
         StartingLibrary();
         
-    
+        // Display welcome message
         System.out.println("========================================");
         System.out.println(" WELCOME TO LIBRARY MANAGEMENT SYSTEM ");
         System.out.println("========================================");
         
+        // Start the main menu
         mainMenu();
-
     }
     
+    /**
+     * Creates initial sample books in the library.
+     */
     private static void StartingLibrary() {
+        // Create sample books
+        Book book1 = new Book(231, "Lets", "Didd", 2025, "Didler", "Fiction");
+        Book book2 = new Book(232, "Letso", "Diddy", 2022, "Diddler", "Fiction");
+        Book book3 = new Book(233, "Letso", "Diddy", 2020, "Diddler", "Fiction");
         
-        Book book1 = new Book();
-        Book book2 = new Book();
-        Book book3 = new Book();
-        
-        Library.addItem(book1);
-        Library.addItem(book2);
-        Library.addItem(book3);
+        // Add books to the library
+        library.addItem(book1);
+        library.addItem(book2);
+        library.addItem(book3);
     }
     
+    /**
+     * Displays and handles the main menu options.
+     */
     private static void mainMenu() {
         boolean exit = false;
         
@@ -43,13 +61,13 @@ public class LibrarySystem{
             
             switch (choice) {
                 case 1:
-                    managerMenu();
+                    managerMenu(); // Enter manager mode
                     break;
                 case 2:
-                    userMenu();
+                    userMenu(); // Enter user mode
                     break;
                 case 0:
-                    exit = true;
+                    exit = true; // Exit the application
                     System.out.println("Thank you for using the library system. Goodbye!");
                     break;
                 default:
@@ -58,6 +76,10 @@ public class LibrarySystem{
         }
     }
     
+    /**
+     * Displays and handles the manager menu options.
+     * Provides administrative functions for library management.
+     */
     private static void managerMenu() {
         boolean exit = false;
         
@@ -75,29 +97,29 @@ public class LibrarySystem{
             System.out.println("0. Return to main menu");
             System.out.print("Enter your choice: ");
             
-            int choice = getIntInput();
+            int choice = scanner.nextInt();
             
             switch (choice) {
                 case 1:
-                    addBook();
+                    addBook(); // Add a new book
                     break;
                 case 2:
-                    deleteBook();
+                    deleteBook(); // Delete an existing book
                     break;
                 case 3:
-                    editBook();
+                    editBook(); // Edit book details
                     break;
                 case 4:
-                    Library.displayAllBooks();
+                    library.displayAllBooks(); // Display all books
                     break;
                 case 5:
-                    searchBooksByTitle();
+                    searchBooksByTitle(); // Search books by title
                     break;
                 case 6:
-                    findBookById();
+                    findBookById(); // Find a book by ID
                     break;
                 case 0:
-                    exit = true;
+                    exit = true; // Return to main menu
                     System.out.println("Returning to main menu...");
                     break;
                 default:
@@ -106,6 +128,10 @@ public class LibrarySystem{
         }
     }
     
+    /**
+     * Displays and handles the user menu options.
+     * Provides functions for library patrons.
+     */
     private static void userMenu() {
         boolean exit = false;
         
@@ -119,33 +145,29 @@ public class LibrarySystem{
             System.out.println("3. Find book by ID");
             System.out.println("4. Borrow a book");
             System.out.println("5. Return a book");
-            System.out.println("6. View my loans");
             System.out.println("0. Return to main menu");
             System.out.print("Enter your choice: ");
             
-            int choice = getIntInput();
+            int choice = scanner.nextInt();
             
             switch (choice) {
                 case 1:
-                    Library.displayAllBooks();
+                    library.displayAllBooks(); // Display all books
                     break;
                 case 2:
-                    searchBooksByTitle();
+                    searchBooksByTitle(); // Search books by title
                     break;
                 case 3:
-                    findBookById();
+                    findBookById(); // Find a book by ID
                     break;
                 case 4:
-                    borrowBook();
+                    borrowBook(); // Borrow a book
                     break;
                 case 5:
-                    returnBook();
-                    break;
-                case 6:
-                    Library.displayLoans(true);
+                    returnBook(); // Return a borrowed book
                     break;
                 case 0:
-                    exit = true;
+                    exit = true; // Return to main menu
                     System.out.println("Returning to main menu...");
                     break;
                 default:
@@ -154,13 +176,17 @@ public class LibrarySystem{
         }
     }
     
+    /**
+     * Handles adding a new book to the library.
+     * Prompts for all required book details.
+     */
     private static void addBook() {
         System.out.println("\n--- ADD NEW BOOK ---");
         
         System.out.print("Enter book ID: ");
         int itemID = scanner.nextInt();
         
-        scanner.nextLine();
+        scanner.nextLine(); // Clear input buffer
         
         System.out.print("Enter title: ");
         String title = scanner.nextLine();
@@ -171,7 +197,7 @@ public class LibrarySystem{
         System.out.print("Enter publication year: ");
         int pubYear = scanner.nextInt();
         
-        scanner.nextLine();
+        scanner.nextLine(); // Clear input buffer
         
         System.out.print("Enter author: ");
         String author = scanner.nextLine();
@@ -179,53 +205,66 @@ public class LibrarySystem{
         System.out.print("Enter genre: ");
         String genre = scanner.nextLine();
         
+        // Create and add the new book
         Book newBook = new Book(itemID, title, publisher, pubYear, author, genre);
         library.addItem(newBook);
         
         System.out.println("Book added successfully!");
     }
     
+    /**
+     * Handles deleting a book from the library.
+     * Prompts for the book ID and removes if found.
+     */
     private static void deleteBook() {
         System.out.println("\n--- DELETE BOOK ---");
         System.out.print("Enter the ID of the book to delete: ");
-        int bookID = getIntInput();
+        int bookID = scanner.nextInt();
         
         try {
-            LibraryItem item = findBookByID(bookID);
-            Library.removeItem(item);
+            LibraryItem item = findBook(bookID);
+            library.removeItem(item);
             System.out.println("Book with ID " + bookID + " has been removed successfully.");
         } catch (ItemNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
     
+    /**
+     * Handles editing book details.
+     * Allows updating title, publisher, publication year, author, and genre.
+     */
     private static void editBook() {
         System.out.println("\n--- EDIT BOOK ---");
         System.out.print("Enter the ID of the book to edit: ");
         int bookID = scanner.nextInt();
         
         try {
-            LibraryItem item = findBookByID(bookID);
+            LibraryItem item = findBook(bookID);
             Book book = (Book) item;
             
-            scanner.nextLine();
+            scanner.nextLine(); // Clear input buffer
             
+            // Display current details and prompt for new values
             System.out.println("Current book details:");
             System.out.println(book.getItemDetails());
             System.out.println("\nEnter new details (leave blank to keep current value):");
             
+            // Update title if provided
             System.out.print("Title [" + book.getTitle() + "]: ");
             String title = scanner.nextLine();
             if (!title.isEmpty()) {
                 book.setTitle(title);
             }
             
+            // Update publisher if provided
             System.out.print("Publisher [" + book.getPublisher() + "]: ");
             String publisher = scanner.nextLine();
             if (!publisher.isEmpty()) {
                 book.setPublisher(publisher);
             }
             
+            // Update publication year if provided
             System.out.print("Publication Year [" + book.getPublicationYear() + "]: ");
             String pubYearStr = scanner.nextLine();
             if (!pubYearStr.isEmpty()) {
@@ -237,12 +276,14 @@ public class LibrarySystem{
                 }
             }
             
+            // Update author if provided
             System.out.print("Author [" + book.getAuthor() + "]: ");
             String author = scanner.nextLine();
             if (!author.isEmpty()) {
                 book.setAuthor(author);
             }
             
+            // Update genre if provided
             System.out.print("Genre [" + book.getGenre() + "]: ");
             String genre = scanner.nextLine();
             if (!genre.isEmpty()) {
@@ -258,45 +299,65 @@ public class LibrarySystem{
         }
     }
     
+    /**
+     * Handles searching for books by title.
+     */
     private static void searchBooksByTitle() {
         System.out.println("\n--- SEARCH BOOKS BY TITLE ---");
         System.out.print("Enter the title to search for: ");
         scanner.nextLine(); // Clear buffer
         String title = scanner.nextLine();
         
-        Library.searchBooks(title);
+        library.searchBooks(title);
     }
     
+    /**
+     * Handles finding a book by its ID.
+     */
     private static void findBookById() {
         System.out.println("\n--- FIND BOOK BY ID ---");
         System.out.print("Enter book ID: ");
-        int bookID = getIntInput();
+        int bookID = scanner.nextInt();
         
-        Library.findBookByID(bookID);
+        library.findBookByID(bookID);
     }
     
+    /**
+     * Handles borrowing a book.
+     * Prompts for book ID and due date.
+     */
     private static void borrowBook() {
         System.out.println("\n--- BORROW A BOOK ---");
         System.out.print("Enter book ID: ");
-        int bookID = getIntInput();
+        int bookID = scanner.nextInt();
         
         scanner.nextLine(); // Clear buffer
         
         System.out.print("Enter due date (YYYY-MM-DD): ");
         String dueDate = scanner.nextLine();
         
-        Library.loanBook(bookID, dueDate);
+        library.loanBook(bookID, dueDate);
     }
     
+    /**
+     * Handles returning a borrowed book.
+     */
     private static void returnBook() {
         System.out.println("\n--- RETURN A BOOK ---");
         System.out.print("Enter book ID: ");
-        int bookID = getIntInput();
+        int bookID = scanner.nextInt();
         
-        Library.returnBook(bookID);
+        library.returnBook(bookID);
     }
     
-    private static LibraryItem findBookByID(int bookID) throws ItemNotFoundException {
+    /**
+     * Helper method to find a book by ID.
+     * 
+     * @param bookID The ID of the book to find
+     * @return The found LibraryItem
+     * @throws ItemNotFoundException If the book is not found
+     */
+    private static LibraryItem findBook(int bookID) throws ItemNotFoundException {
         try {
             // Access the books through the library's utility
             for (Book book : library.getUtility().getAllBooks()) {
@@ -310,21 +371,4 @@ public class LibrarySystem{
             throw new ItemNotFoundException("Book with ID " + bookID + " not found");
         }
     }
-    
-    /*private static int getIntInput() {
-        int input = 0;
-        boolean validInput = false;
-        
-        while (!validInput) {
-            try {
-                input = scanner.nextInt();
-                validInput = true;
-            } catch (Exception e) {
-                System.out.print("Invalid input. Please enter a number: ");
-                scanner.nextLine(); // Clear the invalid input
-            }
-        }
-        
-        return input;
-    }*/
 }
